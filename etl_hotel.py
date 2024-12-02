@@ -10,24 +10,19 @@ from loguru import logger
 # Configuración de Athena y MySQL
 ATHENA_S3_OUTPUT = 's3://queries-results-hotel/Unsaved/2024/12/01/'  
 REGION_NAME = 'us-east-1'
-
 MYSQL_HOST = '44.223.120.162'
 MYSQL_PORT = '8005'
 MYSQL_USER = 'root'
 MYSQL_PASSWORD = 'utec'
 MYSQL_DB = 'prod'
 
-
 # Configuración de logs
-log_directory = "/app/logs"  # Uso de ruta absoluta para evitar confusión
+log_directory = "./logs"  # Ruta relativa para evitar problemas de permisos
 os.makedirs(log_directory, exist_ok=True)
 log_file = os.path.join(log_directory, "etl_hotel.log")
 logger.add(log_file, format="{time:YYYY-MM-DD HH:mm:ss.SSS} | {level} | {name} | {message}", level="INFO", rotation="10 MB", retention="7 days")
 
-# Ahora logger.info, logger.warning, logger.error deberían escribir en el archivo etl_hotel.log dentro de /app/logs
-
-
-
+# Funciones y definiciones
 def create_database_if_not_exists():
     try:
         connection = mysql.connector.connect(
