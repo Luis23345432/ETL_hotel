@@ -10,7 +10,7 @@ from mysql.connector import Error
 ATHENA_S3_OUTPUT = 's3://queries-results-hotel/Unsaved/2024/12/01/'  
 REGION_NAME = 'us-east-1'
 
-MYSQL_HOST = '44.220.154.70'
+MYSQL_HOST = '44.223.120.162'
 MYSQL_PORT = '8005'
 MYSQL_USER = 'root'
 MYSQL_PASSWORD = 'utec'
