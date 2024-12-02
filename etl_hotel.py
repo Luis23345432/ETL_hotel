@@ -17,7 +17,7 @@ MYSQL_PASSWORD = 'utec'
 MYSQL_DB = 'prod'
 
 # Configuración de logs
-log_directory = "./logs"  # Ruta relativa para evitar problemas de permisos
+log_directory = "~/logs"  # Ruta relativa para evitar problemas de permisos
 os.makedirs(log_directory, exist_ok=True)
 log_file = os.path.join(log_directory, "etl_hotel.log")
 logger.add(log_file, format="{time:YYYY-MM-DD HH:mm:ss.SSS} | {level} | {name} | {message}", level="INFO", rotation="10 MB", retention="7 days")
