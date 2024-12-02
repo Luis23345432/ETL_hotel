@@ -17,11 +17,16 @@ MYSQL_USER = 'root'
 MYSQL_PASSWORD = 'utec'
 MYSQL_DB = 'prod'
 
+
 # Configuración de logs
-log_directory = "./logs"
+log_directory = "/app/logs"  # Uso de ruta absoluta para evitar confusión
 os.makedirs(log_directory, exist_ok=True)
-log_file = f"{log_directory}/etl_hotel.log"
+log_file = os.path.join(log_directory, "etl_hotel.log")
 logger.add(log_file, format="{time:YYYY-MM-DD HH:mm:ss.SSS} | {level} | {name} | {message}", level="INFO", rotation="10 MB", retention="7 days")
+
+# Ahora logger.info, logger.warning, logger.error deberían escribir en el archivo etl_hotel.log dentro de /app/logs
+
+
 
 def create_database_if_not_exists():
     try:
